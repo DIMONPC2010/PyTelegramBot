@@ -4,7 +4,6 @@ import os
 
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
-print("Openai key: ", os.getenv('OPENAI_API_KEY'))
 message_pool = {}
 chat_message_pool = {}
 tmp_len = 0
@@ -59,10 +58,6 @@ def chat_gpt_request(message, session_id, session_type):
         if len(chat_message_pool[session_id]) > 1000:
             del chat_message_pool[session_id]
 
-    counter = 0
-    for dict in chat_message_pool[session_id]:
-        counter += len(dict.get("content"))
-    print("Message pool len = ", counter)
     return reply
 
 def reset_private_message_cach(session_id):
