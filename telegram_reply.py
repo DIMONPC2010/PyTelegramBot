@@ -4,7 +4,7 @@ import random
 import os
 import psutil
 
-TELEGRAM_API_KEY = os.getenv("TELEGRAM_API_KEY")
+
 EXPERT_COMMAND = ['expert', 'эксперт']
 QUESTION_COMMAND = ['question', 'вопрос']
 START_COMMAND = ['start', 'старт']
@@ -14,7 +14,7 @@ CPU_COMMAND = ['cpu']
 RAM_COMMAND = ['ram']
 DISK_COMMAND = ['disk']
 
-bot = telebot.TeleBot(TELEGRAM_API_KEY)
+bot = telebot.TeleBot(os.getenv('TELEGRAM_API_KEY'))
 
 @bot.message_handler(commands=HELLO_COMMAND)
 def send_welcome(message):
