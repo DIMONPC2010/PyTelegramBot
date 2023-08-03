@@ -14,6 +14,7 @@ CPU_COMMAND = ['cpu']
 RAM_COMMAND = ['ram']
 DISK_COMMAND = ['disk']
 
+print("Telegram api: ", os.getenv('TELEGRAM_API_KEY'))
 bot = telebot.TeleBot(os.getenv('TELEGRAM_API_KEY'))
 
 @bot.message_handler(commands=HELLO_COMMAND)
