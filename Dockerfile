@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY ..
+COPY ./ /app
 RUN pip install --upgrade pip
 RUN pip install -r reuirements.txt
 
