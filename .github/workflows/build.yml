@@ -65,7 +65,7 @@ jobs:
             export TELEGRAM_API_KEY=${{ secrets.TELEGRAM_API_KEY }}
             docker stop pytelegrambot || true && docker rmi dimonpc2010/pytelegrambot
             docker pull dimonpc2010/pytelegrambot:latest
-            docker run -d --rm --name pytelegrambot -p 8081:8081 dimonpc2010/pytelegrambot --env OPEN_API_KEY=${OPEN_API_KEY} TELEGRAM_API_KEY=${TELEGRAM_API_KEY}
+            docker run -d -e OPEN_API_KEY=${OPEN_API_KEY} TELEGRAM_API_KEY=${TELEGRAM_API_KEY} --rm --name pytelegrambot -p 8081:8081 dimonpc2010/pytelegrambot
       # Send slack alert after done pipeline
       #- name: Send slack notification
       #  uses: 8398a7/action-slack@v3
