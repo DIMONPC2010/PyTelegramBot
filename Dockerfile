@@ -9,4 +9,4 @@ COPY ./ /app
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-CMD [ "python", "./telegram_reply.py"]
+#CMD [ "python", "./telegram_reply.py"]
