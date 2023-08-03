@@ -4,7 +4,7 @@ import os
 
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
-print("Openai key: ", openai.api_key)
+print("Openai key: ", os.getenv('OPENAI_API_KEY'))
 message_pool = {}
 chat_message_pool = {}
 tmp_len = 0
