@@ -37,8 +37,8 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: DIMONPC2010/pytelegrambot:latest
-          cache-from: type=registry,ref=DIMONPC2010/pytelegrambot:latest
+          tags: dimonpc2010/pytelegrambot:latest
+          cache-from: type=registry,ref=dimonpc2010/pytelegrambot:latest
           cache-to: type=inline
 
       - name: Deploy Image
@@ -61,9 +61,9 @@ jobs:
           key: ${{ secrets.GCP_PY_BOT_SSH_KEY }}
           port: ${{ secrets.GCP_PY_BOT_SSH_PORT }}
           script: |
-            docker stop pytelegrambot || true && docker rmi DIMONPC2010/pytelegrambot
-            docker pull DIMONPC2010/pytelegrambot:latest
-            docker run -d --rm --name pytelegrambot -p 8081:8081 DIMONPC2010/pytelegrambot --env OPEN_API_KEY=${{ secrets.OPEN_API_KEY }} TELEGRAM_API_KEY=${{ secrets.TELEGRAM_API_KEY }}
+            docker stop pytelegrambot || true && docker rmi dimonpc2010/pytelegrambot
+            docker pull dimonpc2010/pytelegrambot:latest
+            docker run -d --rm --name pytelegrambot -p 8081:8081 dimonpc2010/pytelegrambot --env OPEN_API_KEY=${{ secrets.OPEN_API_KEY }} TELEGRAM_API_KEY=${{ secrets.TELEGRAM_API_KEY }}
       # Send slack alert after done pipeline
       - name: Send slack notification
         uses: 8398a7/action-slack@v3
